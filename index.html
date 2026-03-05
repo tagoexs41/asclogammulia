@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASC Logam Mulia - Digital Gold Marketplace</title>
+    <script
+      type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="Mid-client-8cAjDO5kYdT22LC2"
+    ></script>
+    <style>
+      /* GLOBAL STYLES */
+      :root {
+        --primary-gold: #d4af37;
+        --secondary-gold: #f9e076;
+        --dark-bg: #121212;
+        --card-bg: #1e1e1e;
+        --text-gray: #a0a0a0;
+        --text-light: #ffffff;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        display: inline-block;
+      }
+
+      .btn-gold {
+        background-color: var(--primary-gold);
+        color: #000;
+      }
+
+      .btn-gold:hover {
+        background-color: var(--secondary-gold);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 1px solid var(--primary-gold);
+        color: var(--primary-gold);
+      }
+
+      .btn-outline:hover {
+        background: rgba(212, 175, 55, 0.1);
+      }
+
+      /* NAVBAR */
+      nav {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        background: rgba(18, 18, 18, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #333;
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-gold);
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-gold);
+      }
+
+      /* HERO SECTION */
+      .hero {
+        padding: 100px 0;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        min-height: 80vh;
+      }
+
+      .hero-content {
+        flex: 1;
+      }
+      .hero-image {
+        flex: 1;
+        text-align: right;
+      }
+      .hero-image img {
+        max-width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero h1 span {
+        color: var(--primary-gold);
+      }
+      .hero p {
+        color: var(--text-gray);
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        max-width: 500px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 15px;
+      }
+
+      /* FEATURES SECTION */
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary-gold);
+      }
+
+      .features {
+        padding: 80px 0;
+        background: #161616;
+      }
+      .grid-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .card-feature {
+        background: var(--card-bg);
+        padding: 40px 30px;
+        border-radius: 15px;
+        text-align: center;
+        border: 1px solid #333;
+        transition: var(--transition);
+      }
+
+      .card-feature:hover {
+        border-color: var(--primary-gold);
+        transform: translateY(-10px);
+      }
+
+      .card-feature h3 {
+        margin-bottom: 15px;
+        color: var(--primary-gold);
+      }
+      .card-feature p {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+      }
+
+      /* PRODUCTS SECTION */
+      .products {
+        padding: 100px 0;
+      }
+      .grid-products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .product-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid #333;
+        transition: var(--transition);
+      }
+
+      .product-card:hover {
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+      }
+      .product-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .product-info {
+        padding: 25px;
+      }
+      .product-price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-gold);
+        margin: 15px 0;
+      }
+
+      /* CHECKOUT MODAL */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        padding: 20px;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .checkout-form {
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 450px;
+        border: 1px solid var(--primary-gold);
+        position: relative;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-gray);
+      }
+      .form-group input {
+        width: 100%;
+        padding: 12px;
+        background: #252525;
+        border: 1px solid #444;
+        color: #fff;
+        border-radius: 8px;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      /* FAQ */
+      .faq {
+        padding: 80px 0;
+        background: #161616;
+      }
+      .faq-item {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+      .faq-item h4 {
+        color: var(--primary-gold);
+        margin-bottom: 10px;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 50px 0;
+        text-align: center;
+        border-top: 1px solid #333;
+      }
+      footer p {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+      }
+
+      /* LOADING ANIMATION */
+      .loading {
+        pointer-events: none;
+        opacity: 0.7;
+      }
+      .loading::after {
+        content: "...";
+        animation: dots 1s steps(5, end) infinite;
+      }
+      @keyframes dots {
+        0%,
+        20% {
+          color: rgba(0, 0, 0, 0);
+          text-shadow:
+            0.25em 0 0 rgba(0, 0, 0, 0),
+            0.5em 0 0 rgba(0, 0, 0, 0);
+        }
+        40% {
+          color: #000;
+          text-shadow:
+            0.25em 0 0 rgba(0, 0, 0, 0),
+            0.5em 0 0 rgba(0, 0, 0, 0);
+        }
+        60% {
+          text-shadow:
+            0.25em 0 0 #000,
+            0.5em 0 0 rgba(0, 0, 0, 0);
+        }
+        80%,
+        100% {
+          text-shadow:
+            0.25em 0 0 #000,
+            0.5em 0 0 #000;
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          padding: 50px 0;
+        }
+        .hero-image {
+          order: -1;
+          text-align: center;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="#" class="logo">ASC LOGAM MULIA</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#produk">Produk</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <h1>Investasi <span>Emas Digital</span> Masa Kini</h1>
+        <p>
+          Miliki aset logam mulia terbaik dengan kemudahan akses digital. Aman,
+          terpercaya, dan eksklusif untuk masa depan Anda.
+        </p>
+        <div class="hero-btns">
+          <a href="#produk" class="btn btn-gold">Lihat Produk</a>
+          <button
+            class="btn btn-outline"
+            onclick="openCheckout('Emas Antam', 1000000)"
+          >
+            Beli Sekarang
+          </button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://placehold.net/default.png"
+          alt="Emas Digital Mockup"
+        />
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mengapa Memilih Kami</h2>
+        </div>
+        <div class="grid-features">
+          <div class="card-feature">
+            <h3>Produk Berkualitas</h3>
+            <p>
+              Hanya menyediakan logam mulia standar internasional dan
+              tersertifikasi.
+            </p>
+          </div>
+          <div class="card-feature">
+            <h3>Akses Selamanya</h3>
+            <p>
+              Sekali beli, data kepemilikan digital Anda tersimpan aman
+              selamanya.
+            </p>
+          </div>
+          <div class="card-feature">
+            <h3>Cocok Untuk Pemula</h3>
+            <p>
+              Antarmuka yang mudah dipahami bagi siapa saja yang baru memulai
+              investasi.
+            </p>
+          </div>
+          <div class="card-feature">
+            <h3>Hemat & Ramah</h3>
+            <p>
+              Tanpa biaya cetak fisik yang mahal di awal, lebih efisien dan
+              modern.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products container" id="produk">
+      <div class="section-title">
+        <h2>Produk Unggulan</h2>
+      </div>
+      <div class="grid-products">
+        <div class="product-card">
+          <img
+            src="https://placehold.net/default.png"
+            alt="Antam"
+            class="product-img"
+          />
+          <div class="product-info">
+            <h3>EMAS Antam</h3>
+            <p>Produk unggulan dengan likuiditas tinggi di pasar global.</p>
+            <div class="product-price">Rp 1.050.000</div>
+            <button
+              class="btn btn-gold"
+              onclick="openCheckout('EMAS Antam', 1050000)"
+            >
+              Beli
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img
+            src="https://placehold.net/default.png"
+            alt="Mini Gold"
+            class="product-img"
+          />
+          <div class="product-info">
+            <h3>Mini Gold</h3>
+            <p>Mulai investasi dari gramasi kecil untuk tabungan rutin.</p>
+            <div class="product-price">Rp 150.000</div>
+            <button
+              class="btn btn-gold"
+              onclick="openCheckout('Mini Gold', 150000)"
+            >
+              Beli
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img
+            src="https://placehold.net/default.png"
+            alt="Silver"
+            class="product-img"
+          />
+          <div class="product-info">
+            <h3>SILVER</h3>
+            <p>Aset perak murni berkualitas tinggi sebagai diversifikasi.</p>
+            <div class="product-price">Rp 500.000</div>
+            <button
+              class="btn btn-gold"
+              onclick="openCheckout('SILVER', 500000)"
+            >
+              Beli
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="checkoutModal">
+      <div class="checkout-form">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3 style="margin-bottom: 20px; color: var(--primary-gold)">
+          Checkout Pembayaran
+        </h3>
+        <form id="payment-form">
+          <div class="form-group">
+            <label>Order ID</label>
+            <input type="text" id="order_id" readonly />
+          </div>
+          <div class="form-group">
+            <label>Produk</label>
+            <input type="text" id="prod_name" readonly />
+          </div>
+          <div class="form-group">
+            <label>Total Harga (IDR)</label>
+            <input type="number" id="gross_amount" readonly />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="contoh@mail.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Nomor HP</label>
+            <input type="tel" id="phone" placeholder="08123456789" required />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-gold"
+            style="width: 100%"
+            id="pay-button"
+          >
+            Bayar Sekarang
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq-item">
+          <h4>Apakah ini produk fisik?</h4>
+          <p>
+            Ini adalah representasi digital dari aset logam mulia yang dapat
+            Anda klaim atau simpan secara aman di dashboard kami.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>Bagaimana cara pembayarannya?</h4>
+          <p>
+            Kami menggunakan sistem pembayaran otomatis Midtrans yang mendukung
+            E-Wallet, Transfer Bank, dan QRIS.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>Kapan saya menerima produk?</h4>
+          <p>
+            Produk akan langsung masuk ke akun digital Anda segera setelah
+            pembayaran dikonfirmasi secara otomatis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 ASC Logam Mulia. Seluruh Hak Cipta Dilindungi.</p>
+        <p style="margin-top: 10px; font-size: 0.7rem">
+          Investasi produk digital memiliki risiko. Pastikan Anda memahami
+          syarat dan ketentuan kami.
+        </p>
+      </div>
+    </footer>
+    <script
+      chatbot_id="69a8fbe755ddf1d56d3b589f"
+      data-type="default"
+      src="https://app.thinkstack.ai/bot/thinkstackai-loader.min.js"
+    ></script>
+
+    <script>
+      // MODAL LOGIC
+      const modal = document.getElementById("checkoutModal");
+
+      function openCheckout(name, price) {
+        const timestamp = Date.now();
+        document.getElementById("order_id").value = "DE-" + timestamp;
+        document.getElementById("prod_name").value = name;
+        document.getElementById("gross_amount").value = price;
+        modal.classList.add("active");
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+      }
+
+      // MIDTRANS INTEGRATION
+      const payButton = document.getElementById("pay-button");
+      const paymentForm = document.getElementById("payment-form");
+
+      /* CATATAN DEVELOPER:
+           1. Masukkan Server Key Anda di variabel SERVER_KEY di bawah (Hanya untuk demo, di production harus lewat Backend).
+           2. Karena ini frontend-only dengan proxy, kita mensimulasikan hit API Midtrans.
+        */
+
+      const SERVER_KEY = "Mid-server-CyPAtHLMjPPhUTCew0LwvNqI"; // Ganti dengan Server Key Midtrans Sandbox Anda
+
+      paymentForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // UI Feedback
+        payButton.classList.add("loading");
+        payButton.innerText = "Memproses...";
+
+        const orderId = document.getElementById("order_id").value;
+        const amount = document.getElementById("gross_amount").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const prodName = document.getElementById("prod_name").value;
+
+        // Payload sesuai instruksi
+        const payload = {
+          transaction_details: {
+            order_id: orderId,
+            gross_amount: parseInt(amount),
+          },
+          item_details: [
+            {
+              id: "ITEM1",
+              price: parseInt(amount),
+              quantity: 1,
+              name: prodName,
+            },
+          ],
+          customer_details: {
+            email: email,
+            phone: phone,
+          },
+        };
+
+        try {
+          // Menggunakan CORS Proxy sesuai instruksi
+          const response = await fetch(
+            "https://corsproxy.io/" +
+              "https://app.sandbox.midtrans.com/snap/v1/transactions",
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: "Basic " + btoa(SERVER_KEY + ":"), // Auth header
+              },
+              body: JSON.stringify(payload),
+            },
+          );
+
+          const data = await response.json();
+
+          if (data.token) {
+            window.snap.pay(data.token, {
+              onSuccess: function (result) {
+                alert("Pembayaran Berhasil!");
+                console.log(result);
+              },
+              onPending: function (result) {
+                alert("Menunggu Pembayaran!");
+                console.log(result);
+              },
+              onError: function (result) {
+                alert("Pembayaran Gagal!");
+                console.log(result);
+              },
+              onClose: function () {
+                alert("Anda menutup popup tanpa menyelesaikan pembayaran");
+              },
+            });
+          } else {
+            alert(
+              "Gagal mendapatkan token transaksi. Pastikan Server Key benar.",
+            );
+            console.error(data);
+          }
+        } catch (err) {
+          console.error("Error:", err);
+          alert("Terjadi kesalahan koneksi ke payment gateway.");
+        } finally {
+          payButton.classList.remove("loading");
+          payButton.innerText = "Bayar Sekarang";
+        }
+      });
+    </script>
+  </body>
+</html>
